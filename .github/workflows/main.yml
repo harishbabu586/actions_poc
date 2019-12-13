@@ -12,7 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a multi-line script
+    - name: repo contents
       run: |
         ls -l
         docker --version
+    - name: checking if java and maven installed or not
+      run: |
+        java -version
+        mvn -version
+        
