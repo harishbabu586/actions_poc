@@ -20,6 +20,7 @@ jobs:
     - name: getting all dependencies
       run: |
         mvn clean install
+        sudo apt install curl
     - name: copying jar files in to docker repo
       run: |
         cp target/*.war src/main/docker/
@@ -28,7 +29,7 @@ jobs:
       run: |
         cd src/main/docker
         docker build -t tomcat:1 .
-        ipconfig
+        curl ifconfig.me
     - name: Deploying application
       run: |
         docker container run -p 8080:8080 tomcat:1
