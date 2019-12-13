@@ -1,6 +1,9 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -11,4 +14,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a multi-line script
       run: |
-        ls -la
+        ls -l
