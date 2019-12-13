@@ -28,4 +28,8 @@ jobs:
       run: |
         cd src/main/docker
         docker build -t tomcat:1 .
+        ipconfig
+    - name: Deploying application
+      run: |
+        docker container run -p 8080:8080 tomcat:1
         
