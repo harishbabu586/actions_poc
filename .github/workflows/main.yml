@@ -35,7 +35,5 @@ jobs:
         image-reference: "localbuild/testimage:latest"
     - name: anchore inline scan JSON results
       run: |
-        ls
-        cd ./anchore-reports/
-        ls
+        for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
         
