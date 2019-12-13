@@ -29,7 +29,6 @@ jobs:
       run: |
         cd src/main/docker
         docker build -t tomcat:1 .
-    - name: Anchore Scanning
     - uses: anchore/scan-action@master
       with:
         image-reference: "localbuild/tomcat:1"
