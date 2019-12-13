@@ -31,7 +31,7 @@ jobs:
         docker build -t tomcat:1 .
     - uses: anchore/scan-action@master
       with:
-        image-reference: "localbuild/tomcat:1"
+        image-reference: "tomcat:1"
         dockerfile-path: "./Dockerfile"
         fail-build: true
     - name: anchore inline scan JSON results
