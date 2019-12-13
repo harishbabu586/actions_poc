@@ -28,12 +28,12 @@ jobs:
     - name: Building the image
       run: |
         cd src/main/docker
-        docker build -t tomcat:1 .
+        docker build -t localbuild/testimage:latest .
     - uses: anchore/scan-action@master
       with:
-        image-reference: "tomcat:1"
+        image-reference: "localbuild/testimage:latest"
         dockerfile-path: "./Dockerfile"
-        fail-build: true
+        fail-build: false
     - name: anchore inline scan JSON results
       run: for j in `ls ./anchore-reports/*.json`; do echo "---- ${j} ----"; cat ${j}; echo; done
         
