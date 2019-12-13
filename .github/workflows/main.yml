@@ -16,8 +16,16 @@ jobs:
       run: |
         ls -l
         docker --version
-    - name: checking if java and maven installed or not
+        
+    - name: getting all dependencies
       run: |
-        java -version
-        mvn -version
+        mvn clean install
+    - name: copying jar files in to docker repo
+      run: |
+        cp target/*.war src/main/docker/
+        
+    - name: Building the image
+      run: |
+        cd src/main/docker
+        docker build -t tomcat:1 .
         
